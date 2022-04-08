@@ -1,7 +1,129 @@
+import { AiFillPlayCircle } from "react-icons/ai";
+import { SiEthereum } from "react-icons/si";
+import { BsInfoCircle } from "react-icons/bs";
 import React from "react";
 
+import { Loader } from "./";
+
+const commonStyles =
+  "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
+
+const Input = ({ placeholder, name, type, value, handleChange }) => (
+  <input
+    placeholder={placeholder}
+    type={type}
+    step="0.0001"
+    value={value}
+    onChange={(e) => handleChange(e, name)}
+    className="my-2 w-full rounded-md p-2 bg-white text-black border-0 text-sm border-black"
+  />
+);
+
 const Welcome = () => {
-  return <div>Welcome</div>;
+  const connectWallet = () => {};
+
+  const handleSubmit = () => {};
+
+  return (
+    <div className="flex w-full justify-center items-center font-fira">
+      <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 py-12 px-4">
+        <div className="flex flex-1 justify-start flex-col mf:mr-10">
+          <h1 className="text-3xl sm:text-5xl text-black py-1">
+            Send Crypto <br /> across the world
+          </h1>
+          <p className="text-left mt-5 text-black md:w-9/12 w-11/12 text-base">
+            Explore the crypto world. Buy and sell cryptocurrencies easily on
+            crypNut.
+          </p>
+          <button
+            type="button"
+            onClick={connectWallet}
+            className="flex flex-row justify-center items-center my-5 bg-[#85F4FF] p-3 rounded-full cursor-pointer hover:bg-[#42C2FF]"
+          >
+            <p className="text-black text-base">Connect Wallet</p>
+          </button>
+
+          <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
+            <div className={`rounded-tl-2xl ${commonStyles}`}>
+              <p className="text-black text-base">Reliability</p>
+            </div>
+            <div className={commonStyles}>
+              <p className="text-black text-base">Security</p>
+            </div>
+            <div className={`rounded-tr-2xl ${commonStyles}`}>
+              <p className="text-black text-base">Ethereum</p>
+            </div>
+            <div className={`rounded-bl-2xl ${commonStyles}`}>
+              <p className="text-black text-base">Web 3.0</p>
+            </div>
+            <div className={commonStyles}>
+              <p className="text-black text-base">Low fees</p>
+            </div>
+            <div className={`rounded-br-2xl ${commonStyles}`}>
+              <p className="text-black text-base">Blockchain</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col flex-1 items-center justify-start w-full mf:mt-0 mt-10">
+          <div className="p-3 justify-end items-start flex-col rounded-xl h-40 sm:w-72 w-full my-5 border-2 border-black">
+            <div className="flex justify-between flex-col w-full h-full">
+              <div className="flex justify-between items-start">
+                <div className="w-10 h-10 rounded-full border-2 border-black flex justify-center items-center">
+                  <SiEthereum fontSize={21} color="#000" />
+                </div>
+                <BsInfoCircle fontSize={17} color="#000" />
+              </div>
+              <div>
+                <p className="text-black text-sm">Address</p>
+                <p className="text-black text-lg mt-1">Ethereum</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center bg-[#85F4FF] rounded-xl border-2 border-black">
+            <Input
+              placeholder="Address To"
+              name="addressTo"
+              type="text"
+              handleChange={() => {}}
+            />
+            <Input
+              placeholder="Amount (ETH)"
+              name="amount"
+              type="number"
+              handleChange={() => {}}
+            />
+            <Input
+              placeholder="Keyword (Gif)"
+              name="keyword"
+              type="text"
+              handleChange={() => {}}
+            />
+            <Input
+              placeholder="Enter Message"
+              name="message"
+              type="text"
+              handleChange={() => {}}
+            />
+            <div className="h-[1px] w-full bg-gray-400 my-2" />
+
+            {false ? (
+              <Loader />
+            ) : (
+              <button
+                type="button"
+                onClick={handleSubmit}
+                className="text-black bg-[#fff] hover:bg-[#42C2FF] w-full mt-2 border-[1px] p-2 border-[#fff] rounded-full cursor-pointer"
+              >
+                Send Now
+              </button>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Welcome;

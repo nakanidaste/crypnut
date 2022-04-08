@@ -11,15 +11,15 @@ const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
-    <nav className="w-full flex md:justify-center justify-between items-center p-4">
+    <nav className="w-full flex md:justify-center justify-between items-center p-4 font-fira">
       <div className="md:flex-[1] flex-initial justify-center items-center">
-        <img src={logo} alt="logo" className="w-32 cursor-pointer" />
+        <img src={logo} alt="logo" className="w-20 cursor-pointer" />
       </div>
-      <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial">
+      <ul className="text-black text-xl md:flex hidden list-none flex-row justify-between items-center flex-initial">
         {["Market", "Exchange", "Tutorial", "Wallets"].map((item, index) => (
           <NavbarItem key={item + index} title={item} />
         ))}
-        <li className="bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]">
+        <li className="bg-[#85F4FF] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#42C2FF]">
           Login
         </li>
       </ul>
@@ -28,14 +28,14 @@ const Navbar = () => {
         {!toggleMenu && (
           <HiMenuAlt4
             fontSize={28}
-            className="text-white md:hidden cursor-pointer"
+            className="text-black md:hidden cursor-pointer"
             onClick={() => setToggleMenu(true)}
           />
         )}
         {toggleMenu && (
           <AiOutlineClose
             fontSize={28}
-            className="text-white md:hidden cursor-pointer"
+            className="text-black md:hidden cursor-pointer"
             onClick={() => setToggleMenu(false)}
           />
         )}

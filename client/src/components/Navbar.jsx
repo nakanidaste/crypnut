@@ -11,11 +11,11 @@ const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
 
   return (
-    <nav className="w-full flex md:justify-center justify-between items-center p-4 font-fira">
+    <nav className="w-full flex md:justify-center justify-between items-center p-4 font-fira dark:bg-black">
       <div className="md:flex-[1] flex-initial justify-center items-center">
         <img src={logo} alt="logo" className="w-20 cursor-pointer" />
       </div>
-      <ul className="text-black text-xl md:flex hidden list-none flex-row justify-between items-center flex-initial">
+      <ul className="text-black dark:text-white text-xl md:flex hidden list-none flex-row justify-between items-center flex-initial">
         {["Market", "Exchange", "Tutorial", "Wallets"].map((item, index) => (
           <NavbarItem key={item + index} title={item} />
         ))}

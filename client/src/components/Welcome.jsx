@@ -28,6 +28,7 @@ const Welcome = () => {
     formData,
     sendTransaction,
     handleChange,
+    isLoading,
   } = useContext(TransactionContext);
 
   const handleSubmit = (e) => {
@@ -41,13 +42,13 @@ const Welcome = () => {
   };
 
   return (
-    <div className="flex w-full justify-center items-center font-fira">
+    <div className="flex w-full justify-center items-center font-fira dark:bg-black">
       <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 py-12 px-4">
         <div className="flex flex-1 justify-start flex-col mf:mr-10">
-          <h1 className="text-3xl sm:text-5xl text-black py-1">
+          <h1 className="text-3xl sm:text-5xl text-black dark:text-white py-1">
             Send Crypto <br /> across the world
           </h1>
-          <p className="text-left mt-5 text-black md:w-9/12 w-11/12 text-base">
+          <p className="text-left mt-5 text-black dark:text-white md:w-9/12 w-11/12 text-base">
             Explore the crypto world. Buy and sell cryptocurrencies easily on
             crypNut.
           </p>
@@ -58,46 +59,52 @@ const Welcome = () => {
               onClick={connectWallet}
               className="flex flex-row justify-center items-center my-5 bg-[#85F4FF] p-3 rounded-full cursor-pointer hover:bg-[#42C2FF]"
             >
-              <p className="text-black text-base">Connect Wallet</p>
+              <p className="text-black dark:text-white text-base">
+                Connect Wallet
+              </p>
             </button>
           )}
 
           <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
             <div className={`rounded-tl-2xl ${commonStyles}`}>
-              <p className="text-black text-base">Reliability</p>
+              <p className="text-black dark:text-white text-base">
+                Reliability
+              </p>
             </div>
             <div className={commonStyles}>
-              <p className="text-black text-base">Security</p>
+              <p className="text-black dark:text-white text-base">Security</p>
             </div>
             <div className={`rounded-tr-2xl ${commonStyles}`}>
-              <p className="text-black text-base">Ethereum</p>
+              <p className="text-black dark:text-white text-base">Ethereum</p>
             </div>
             <div className={`rounded-bl-2xl ${commonStyles}`}>
-              <p className="text-black text-base">Web 3.0</p>
+              <p className="text-black dark:text-white text-base">Web 3.0</p>
             </div>
             <div className={commonStyles}>
-              <p className="text-black text-base">Low fees</p>
+              <p className="text-black dark:text-white text-base">Low fees</p>
             </div>
             <div className={`rounded-br-2xl ${commonStyles}`}>
-              <p className="text-black text-base">Blockchain</p>
+              <p className="text-black dark:text-white text-base">Blockchain</p>
             </div>
           </div>
         </div>
 
         <div className="flex flex-col flex-1 items-center justify-start w-full mf:mt-0 mt-10">
-          <div className="p-3 justify-end items-start flex-col rounded-xl h-40 sm:w-72 w-full my-5 border-2 border-black">
+          <div className="p-3 justify-end items-start flex-col rounded-xl h-40 sm:w-72 w-full my-5 border-2 border-black dark:border-white">
             <div className="flex justify-between flex-col w-full h-full">
               <div className="flex justify-between items-start">
-                <div className="w-10 h-10 rounded-full border-2 border-black flex justify-center items-center">
+                <div className="w-10 h-10 rounded-full border-2 border-black dark:border-white flex justify-center items-center">
                   <SiEthereum fontSize={21} color="#000" />
                 </div>
                 <BsInfoCircle fontSize={17} color="#000" />
               </div>
               <div>
-                <p className="text-black text-sm">
+                <p className="text-black dark:text-white text-sm">
                   {shortenAddress(currentAccount)}
                 </p>
-                <p className="text-black text-lg mt-1">Ethereum</p>
+                <p className="text-black dark:text-white text-lg mt-1">
+                  Ethereum
+                </p>
               </div>
             </div>
           </div>
@@ -129,13 +136,13 @@ const Welcome = () => {
             />
             <div className="h-[1px] w-full bg-gray-400 my-2" />
 
-            {false ? (
+            {isLoading ? (
               <Loader />
             ) : (
               <button
                 type="button"
                 onClick={handleSubmit}
-                className="text-black bg-[#fff] hover:bg-[#42C2FF] w-full mt-2 border-[1px] p-2 border-[#fff] rounded-full cursor-pointer"
+                className="text-black dark:text-white bg-[#fff] hover:bg-[#42C2FF] w-full mt-2 border-[1px] p-2 border-[#fff] rounded-full cursor-pointer"
               >
                 Send Now
               </button>

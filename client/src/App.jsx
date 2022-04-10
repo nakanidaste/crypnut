@@ -2,6 +2,7 @@ import { Navbar, Welcome, Footer, Services, Transactions } from "./components";
 import useDarkMode from "./hooks/useDarkMode";
 
 const App = () => {
+  useDarkMode();
   return (
     <div className="min-h-screen">
       <Navbar />

@@ -2,8 +2,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="flex justify-center items-center flex-col mt-5 mb-10 font-fira ">
-      Made by Lullaby with ❤️❤️❤️
+    <div className="flex w-full justify-center items-center flex-col pb-10 font-fira dark:bg-black">
+      <p className="dark:text-white">Made by Lullaby with ❤️❤️❤️</p>
     </div>
   );
 };

@@ -142,7 +142,7 @@ const Welcome = () => {
               <button
                 type="button"
                 onClick={handleSubmit}
-                className="text-black dark:text-white bg-[#fff] hover:bg-[#42C2FF] w-full mt-2 border-[1px] p-2 border-[#fff] rounded-full cursor-pointer"
+                className="text-black bg-[#fff] hover:bg-[#42C2FF] w-full mt-2 border-[1px] p-2 border-[#fff] rounded-full cursor-pointer"
               >
                 Send Now
               </button>

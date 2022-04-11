@@ -1,4 +1,3 @@
-import { AiFillPlayCircle } from "react-icons/ai";
 import { SiEthereum } from "react-icons/si";
 import { BsInfoCircle } from "react-icons/bs";
 import React, { useContext } from "react";
@@ -6,6 +5,7 @@ import React, { useContext } from "react";
 import { TransactionContext } from "../context/TransactionContext";
 import { Loader } from "./";
 import { shortenAddress } from "../utils/shortenAddress";
+import useDarkMode from "../hooks/useDarkMode";
 
 const commonStyles =
   "min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white";
@@ -30,6 +30,8 @@ const Welcome = () => {
     handleChange,
     isLoading,
   } = useContext(TransactionContext);
+
+  const [setTheme, colorTheme] = useDarkMode();
 
   const handleSubmit = (e) => {
     const { addressTo, amount, keyword, message } = formData;
@@ -59,9 +61,7 @@ const Welcome = () => {
               onClick={connectWallet}
               className="flex flex-row justify-center items-center my-5 bg-[#85F4FF] p-3 rounded-full cursor-pointer hover:bg-[#42C2FF]"
             >
-              <p className="text-black dark:text-white text-base">
-                Connect Wallet
-              </p>
+              <p className="text-black text-base">Connect Wallet</p>
             </button>
           )}
 
@@ -93,10 +93,12 @@ const Welcome = () => {
           <div className="p-3 justify-end items-start flex-col rounded-xl h-40 sm:w-72 w-full my-5 border-2 border-black dark:border-white">
             <div className="flex justify-between flex-col w-full h-full">
               <div className="flex justify-between items-start">
-                <div className="w-10 h-10 rounded-full border-2 border-black dark:border-white flex justify-center items-center">
+                <div className="w-10 h-10 rounded-full border-2 border-black dark:border-white bg-white flex justify-center items-center">
                   <SiEthereum fontSize={21} color="#000" />
                 </div>
-                <BsInfoCircle fontSize={17} color="#000" />
+                <div className="w-5 h-5 rounded-full dark:border-white bg-white flex justify-center items-center">
+                  <BsInfoCircle fontSize={17} color="#000" />
+                </div>
               </div>
               <div>
                 <p className="text-black dark:text-white text-sm">
@@ -109,7 +111,7 @@ const Welcome = () => {
             </div>
           </div>
 
-          <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center bg-[#85F4FF] rounded-xl border-2 border-black">
+          <div className="p-5 sm:w-96 w-full flex flex-col justify-start items-center bg-[#85F4FF] rounded-xl border-2 border-black dark:border-white">
             <Input
               placeholder="Address To"
               name="addressTo"

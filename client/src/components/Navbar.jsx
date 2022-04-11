@@ -1,63 +1,26 @@
-import React, { useState } from "react";
-import { HiMenuAlt4 } from "react-icons/hi";
-import { AiOutlineClose } from "react-icons/ai";
-import logo from "../images/logo.png";
-
-const NavbarItem = ({ title, classProps }) => {
-  return <li className={`mx-4 cursor-pointer ${classProps}`}>{title}</li>;
-};
+import React from "react";
+import { Logo, Sun, Moon } from "../images";
+import useDarkMode from "../hooks/useDarkMode";
 
 const Navbar = () => {
-  const [toggleMenu, setToggleMenu] = useState(false);
+  const [setTheme, colorTheme] = useDarkMode();
 
   return (
     <nav className="w-full flex md:justify-center justify-between items-center p-4 font-fira dark:bg-black">
       <div className="md:flex-[1] flex-initial justify-center items-center">
-        <img src={logo} alt="logo" className="w-20 cursor-pointer" />
+        <img src={Logo} alt="logo" className="w-20 cursor-pointer" />
       </div>
-      <ul className="text-black dark:text-white text-xl md:flex hidden list-none flex-row justify-between items-center flex-initial">
-        {["Market", "Exchange", "Tutorial", "Wallets"].map((item, index) => (
-          <NavbarItem key={item + index} title={item} />
-        ))}
-        <li className="bg-[#85F4FF] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#42C2FF]">
-          Login
-        </li>
-      </ul>
-
-      <div className="flex relative">
-        {!toggleMenu && (
-          <HiMenuAlt4
-            fontSize={28}
-            className="text-black md:hidden cursor-pointer"
-            onClick={() => setToggleMenu(true)}
-          />
-        )}
-        {toggleMenu && (
-          <AiOutlineClose
-            fontSize={28}
-            className="text-black md:hidden cursor-pointer"
-            onClick={() => setToggleMenu(false)}
-          />
-        )}
-        {toggleMenu && (
-          <ul
-            className="z-10 fixed -top-0 -right-2 p-3 w-[70vw] h-screen shadow-2xl md:hidden list-none
-            flex flex-col justify-start items-end rounded-md blue-glassmorphism text-white animate-slide-in"
-          >
-            <li className="text-xl w-full my-2">
-              <AiOutlineClose onClick={() => setToggleMenu(false)} />
-            </li>
-            {["Market", "Exchange", "Tutorials", "Wallets"].map(
-              (item, index) => (
-                <NavbarItem
-                  key={item + index}
-                  title={item}
-                  classprops="my-2 text-lg"
-                />
-              )
-            )}
-          </ul>
-        )}
+      <div className="sm:flex list-none items-center flex-initial">
+        <div
+          onClick={() => setTheme(colorTheme)}
+          className="w-10 h-10 bg-white rounded-full shadow-lg cursor-pointer text-white flex items-center justify-center"
+        >
+          {colorTheme === "light" ? (
+            <img src={Sun} className="w-6 h-6" />
+          ) : (
+            <img src={Moon} className="w-6 h-6" />
+          )}
+        </div>
       </div>
     </nav>
   );

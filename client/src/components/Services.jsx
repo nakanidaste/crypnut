@@ -36,19 +36,19 @@ const Services = () => {
           color="bg-[#2952E3]"
           title="Security Guaranteed"
           icon={<BsShieldFillCheck fontSize={21} className="text-white" />}
-          subtitle="Security is guaranted. We always maintain privacy and mainting the quality of our products."
+          subtitle="We always maintain privacy and quality of our products. With blockchain technology we will provide security but still prioritize transparency in every aspect of our product and services."
         />
         <ServiceCard
           color="bg-[#8945F8]"
-          title="Best Exchange Rates"
+          title="Easy to use"
           icon={<BiSearchAlt fontSize={21} className="text-white" />}
-          subtitle="Security is guaranted. We always maintain privacy and mainting the quality of our products."
+          subtitle="We want our services and product to be easy to use for everyone, even people who are unfamiliar with cryptocurrency and blockchain."
         />
         <ServiceCard
           color="bg-[#F84550]"
-          title="Fastest Transactions"
+          title="Transparent"
           icon={<RiHeart2Fill fontSize={21} className="text-white" />}
-          subtitle="Security is guaranted. We always maintain privacy and mainting the quality of our products."
+          subtitle="We want our services and product to be peer-to-peer without middle man or centralized authority. So you don't have to worry about your transactions transparency."
         />
       </div>
     </div>

@@ -48,11 +48,11 @@ const Welcome = () => {
       <div className="flex mf:flex-row flex-col items-start justify-between md:p-20 py-12 px-4">
         <div className="flex flex-1 justify-start flex-col mf:mr-10">
           <h1 className="text-3xl sm:text-5xl text-black dark:text-white py-1">
-            Send Crypto <br /> across the world
+            Send Crypto <br /> for the love one <br /> across the world
           </h1>
           <p className="text-left mt-5 text-black dark:text-white md:w-9/12 w-11/12 text-base">
-            Explore the crypto world. Buy and sell cryptocurrencies easily on
-            crypNut.
+            Explore the crypto world. Send and receive crypto to anyone with
+            your special message and gif through blockchain with crypNut.
           </p>
 
           {!currentAccount && (
@@ -75,13 +75,13 @@ const Welcome = () => {
               <p className="text-black dark:text-white text-base">Security</p>
             </div>
             <div className={`rounded-tr-2xl ${commonStyles}`}>
-              <p className="text-black dark:text-white text-base">Ethereum</p>
+              <p className="text-black dark:text-white text-base">Simplicity</p>
             </div>
             <div className={`rounded-bl-2xl ${commonStyles}`}>
               <p className="text-black dark:text-white text-base">Web 3.0</p>
             </div>
             <div className={commonStyles}>
-              <p className="text-black dark:text-white text-base">Low fees</p>
+              <p className="text-black dark:text-white text-base">Ethereum</p>
             </div>
             <div className={`rounded-br-2xl ${commonStyles}`}>
               <p className="text-black dark:text-white text-base">Blockchain</p>

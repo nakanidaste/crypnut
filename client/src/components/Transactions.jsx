@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 
 import { TransactionContext } from "../context/TransactionContext";
 
 import dummyData from "../utils/dummyData";
 import { shortenAddress } from "../utils/shortenAddress";
 import useFetch from "../hooks/useFetch";
+import exportAsImage from "../utils/exportAsImage.js";
 
 const TransactionCard = ({
   addressTo,
@@ -16,6 +17,7 @@ const TransactionCard = ({
   timestamp,
 }) => {
   const gifUrl = useFetch({ keyword });
+  const exportRef = useRef();
 
   return (
     <div
@@ -26,6 +28,7 @@ const TransactionCard = ({
     sm:max-w-[300px]
     flex-col p-3 rounded-md hover:shadow-2xl
     "
+      ref={exportRef}
     >
       <div className="flex flex-col items-center w-full mt-3">
         <div className="w-full mb-6 p-2">
@@ -64,6 +67,9 @@ const TransactionCard = ({
         <div className="bg-black p-3 px-5 w-max rounded-3xl shadow-2xl">
           <p className="text-[#37c7da] font-bold">{timestamp}</p>
         </div>
+        <button onClick={() => exportAsImage(exportRef.current, "test")}>
+          Save Image
+        </button>
       </div>
     </div>
   );

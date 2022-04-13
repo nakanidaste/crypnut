@@ -14,7 +14,7 @@ const downloadImage = (blob, fileName) => {
   fakeLink.remove();
 };
 
-const exportAsImage = async (el, imageFileName) => {
+const exportAsImage = async (element, imageFileName) => {
   const canvas = await html2canvas(element);
   const image = canvas.toDataURL("image/png", 1.0);
   downloadImage(image, imageFileName);

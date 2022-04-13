@@ -1,9 +1,7 @@
 import React, { useContext, useRef } from "react";
-
 import { TransactionContext } from "../context/TransactionContext";
-
-import dummyData from "../utils/dummyData";
 import { shortenAddress } from "../utils/shortenAddress";
+
 import useFetch from "../hooks/useFetch";
 import exportAsImage from "../utils/exportAsImage.js";
 
@@ -17,7 +15,7 @@ const TransactionCard = ({
   timestamp,
 }) => {
   const gifUrl = useFetch({ keyword });
-  const exportRef = useRef();
+  const exportRef = useRef(null);
 
   return (
     <div
@@ -67,7 +65,10 @@ const TransactionCard = ({
         <div className="bg-black p-3 px-5 w-max rounded-3xl shadow-2xl">
           <p className="text-[#37c7da] font-bold">{timestamp}</p>
         </div>
-        <button onClick={() => exportAsImage(exportRef.current, "test")}>
+        <button
+          onClick={() => exportAsImage(exportRef.current, "test")}
+          className="mt-3"
+        >
           Save Image
         </button>
       </div>
